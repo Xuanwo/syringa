@@ -17,4 +17,3 @@ release:
 	@echo "release syringa"
 	@cargo build --release
 	@echo "ok"
-
