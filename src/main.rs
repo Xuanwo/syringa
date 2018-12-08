@@ -5,10 +5,12 @@ extern crate walkdir;
 #[macro_use]
 extern crate serde_derive;
 extern crate serde_yaml;
+extern crate git2;
 
-mod cli;
-mod common;
+mod import;
 mod list;
+mod common;
+mod cli;
 
 fn main() {
     let app = cli::build_cli();
@@ -20,6 +22,15 @@ fn main() {
             let search = l.value_of("search").unwrap();
 
             list::list(search, is_maintainer)
+        }
+        ("import", Some(i)) => {
+            let aur = i.value_of("aur").unwrap();
+
+            if aur != "" {
+                import::import_aur(aur)
+            } else {
+                unimplemented!()
+            }
         }
         _ => println!("{}", matches.usage()),
     }

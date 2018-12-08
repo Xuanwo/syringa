@@ -10,9 +10,15 @@ pub fn build_cli() -> App<'static, 'static> {
             .required(true),
     ]);
 
+    // import related subcommands.
+    let import = SubCommand::with_name("import").args(&[
+        Arg::with_name("aur").long("aur")
+            .takes_value(true),
+    ]);
+
     App::new("syringa")
         .version(crate_version!())
         .author(crate_authors!())
         .about(crate_description!())
-        .subcommands(vec![list])
+        .subcommands(vec![list, import])
 }
