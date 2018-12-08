@@ -21,3 +21,11 @@ List packages maintained by name or email:
 syringa list -m farseerfc
 syringa list -m xuanwo@archlinuxcn.org
 ```
+
+Import package from AUR:
+
+```
+syringa import --aur tikv
+```
+
+> All the file/directory start with `.` in the package will be removed.
