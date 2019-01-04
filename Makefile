@@ -4,8 +4,8 @@ SHELL := /bin/bash
 
 help:
 	@echo "Please use \`make <target>\` where <target> is one of"
-	@echo "  build      to create bin directory and build qscamel"
-	@echo "  release    to release qscamel"
+	@echo "  build      to create bin directory and build syringa"
+	@echo "  release    to release syringa"
 
 
 build:
