@@ -6,6 +6,7 @@ extern crate walkdir;
 extern crate serde_derive;
 extern crate serde_yaml;
 extern crate git2;
+extern crate atty;
 
 mod import;
 mod list;

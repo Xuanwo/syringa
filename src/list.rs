@@ -1,5 +1,6 @@
 use std::fs;
 
+use atty::Stream;
 use common::*;
 use rayon::prelude::*;
 use serde_yaml;
@@ -16,8 +17,10 @@ pub fn list(search: &str, is_maintainer: bool) {
 fn list_packages_by_name() {}
 
 fn list_packages_by_maintainer(search: &str) {
-    println!("Packages maintained by {}", search);
-    println!("--------");
+    if atty::is(Stream::Stdout) {
+        println!("Packages maintained by {}", search);
+        println!("--------");
+    }
 
     for entry in WalkDir::new(".").max_depth(2) {
         let entry = entry.unwrap();
